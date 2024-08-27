@@ -1,0 +1,1141 @@
+{
+    "modelName": "New Model",
+    "collections": [
+        {
+            "collectionName": "Users",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "5ab83468-5846-4e66-ac62-610d384706bb",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {},
+                    "childRelationships": [
+                        "c6daa221-fc65-4141-8e77-711be8f5e4b1"
+                    ]
+                },
+                {
+                    "name": "firstName",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "ef3ec0bf-81ca-4fa3-a433-6710d5a12cd2",
+                    "required": true,
+                    "error": {
+                        "name": false
+                    }
+                },
+                {
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "7bd5321c-16b7-443b-a44a-cc84b8aaec72",
+                    "name": "lastName",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "userImage",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "binary",
+                    "primaryKey": false,
+                    "GUID": "4db8e592-d7b9-43e0-bd7a-3207378a6eab",
+                    "error": {}
+                },
+                {
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "83b51bc7-e2f1-4bbc-ab9b-8ab1c3a797e0",
+                    "name": "userBio",
+                    "error": {}
+                },
+                {
+                    "name": "email",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "7739815c-0f04-451c-bd90-44a65a421a5b",
+                    "required": true,
+                    "format": "email",
+                    "error": {}
+                },
+                {
+                    "name": "password",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "788f6118-f4a0-40c5-b8af-6aa3381750fb",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "createdAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "3980d1f6-d466-4ae6-be4c-134cf98d8704",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "updatedAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "58eb3a3d-f60c-4a8d-8f61-841f79b25819",
+                    "required": true,
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "e3896317-8240-4c8b-8356-65748d8e6c74"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+            "bucketId": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        },
+        {
+            "collectionName": "Workouts",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "1cea51eb-3c96-4d4c-83f7-a49033ce1088",
+                    "primaryKey": true,
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "userId",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "7299b6ee-f1e6-409f-b78a-100382aa00c7",
+                    "required": true,
+                    "error": {},
+                    "foreignCollection": "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                    "foreignField": [
+                        "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                        "5ab83468-5846-4e66-ac62-610d384706bb"
+                    ],
+                    "relationshipType": "Foreign Key",
+                    "parentRelationship": "c6daa221-fc65-4141-8e77-711be8f5e4b1"
+                },
+                {
+                    "name": "title",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "d1a6b9ca-9e93-47da-9c16-d463a0178a13",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "date",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "a4a0cb06-80e0-487e-97c6-a74dcbe9cd6d",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "duration",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "error": {},
+                    "required": true,
+                    "GUID": "589eafd1-6a6d-4d1b-b15e-779faf23d5a3"
+                },
+                {
+                    "name": "createdAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "f23b3802-0b8f-40fd-a645-6c5c1b88ac9e",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "updatedAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "error": {},
+                    "required": true,
+                    "GUID": "f4981e81-584f-4203-b410-f18686939bec"
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "98ef1baf-f412-406d-952a-6caf5b15fc62"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "6a78591e-7398-4929-a993-4b676991db6b",
+            "bucketId": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        },
+        {
+            "collectionName": "WorkoutExercises",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "eb016f8f-22be-4365-8d5e-fe934e6153cc",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {}
+                },
+                {
+                    "name": "workoutId",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "0e50d1b3-b46c-4c0e-b93f-0c8c3dbfec08",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "exerciseId",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "749bbbbe-82b6-4d75-9670-845d3990090d",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "sets",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "error": {},
+                    "GUID": "f31b1b23-4e82-40f2-996f-830e2bdb50f1"
+                },
+                {
+                    "name": "reps",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "error": {},
+                    "GUID": "08ae11aa-4094-4c5a-a03b-462e69e76ab6"
+                },
+                {
+                    "name": "weight",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "error": {},
+                    "GUID": "8e065826-76b0-46a8-a62a-f681820c5c6c"
+                },
+                {
+                    "name": "createdAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "error": {},
+                    "GUID": "c2e30ae5-53f3-4324-9380-414bd455a00a"
+                },
+                {
+                    "name": "updatedAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "error": {},
+                    "GUID": "5cde32e6-4dcb-414e-aa8c-1b71e0c95bcd"
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "7c335789-acde-463b-a52d-41d700c4bb1f"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "756539a5-e68d-423f-8bf8-133a40ebb56c",
+            "bucketId": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        },
+        {
+            "collectionName": "Exercises",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "error": {},
+                    "primaryKey": true,
+                    "required": true,
+                    "GUID": "acde04ab-2a3c-4bcd-9e84-6c09ad1a024d"
+                },
+                {
+                    "name": "title",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "de38ac14-2921-4c45-b698-4fd621962378",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "description",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "886a79f3-8961-4858-a698-3978ecc5fb00",
+                    "error": {
+                        "name": false
+                    }
+                },
+                {
+                    "name": "muscleGroupId",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "required": true,
+                    "GUID": "26bca8e9-7d8a-463e-a707-2b95e44c257b",
+                    "error": {}
+                },
+                {
+                    "name": "equipmentId",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "2529fe69-85b4-4d47-bd5c-213abceff7c2",
+                    "error": {}
+                },
+                {
+                    "name": "createdAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "ea7c1f62-4a21-45e1-9c8d-71fa3c52611e",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "updatedAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "error": {},
+                    "required": true,
+                    "GUID": "d6fc709e-682c-425c-867a-f426d6d968f3"
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "df89492e-c220-43c5-b196-5d2faa3122d7"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+            "bucketId": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        },
+        {
+            "collectionName": "Equipment",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "error": {},
+                    "primaryKey": true,
+                    "required": true,
+                    "GUID": "d8b58743-04b2-4720-9e99-59dd43bfe794",
+                    "childRelationships": [
+                        "b310e69c-9ca7-40a6-b192-b12dc2e7f164",
+                        "a606454f-666a-45cb-b9ac-2fb21d4b6af0"
+                    ]
+                },
+                {
+                    "name": "name",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "dddab6d1-8e12-4f45-8385-5152a11e0389",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "description",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "a7032f24-7a4c-4656-b794-8b9b4fa39e63",
+                    "error": {
+                        "name": false
+                    }
+                },
+                {
+                    "name": "createdAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "ddaa9eca-071b-4793-a430-2a03088c65db",
+                    "required": true,
+                    "error": {}
+                },
+                {
+                    "name": "updatedAt",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "date",
+                    "primaryKey": false,
+                    "GUID": "fee10379-3b19-463a-b479-d631b7513e3d",
+                    "required": true,
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "93b4d162-e4f1-48a5-a491-7100002af1cd"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "2f8d31a0-c408-41bb-9061-1a2dc4bec15e",
+            "bucketId": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        },
+        {
+            "collectionName": "MuscleGroups",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "id",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "objectId",
+                    "GUID": "4a3cc611-7772-48e1-8688-d8ef8a4458a3",
+                    "required": true,
+                    "primaryKey": true,
+                    "error": {}
+                },
+                {
+                    "name": "name",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "780c64d2-c0bf-4186-ad53-c8a758dbae6b",
+                    "required": true,
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "f2944f6e-8a5a-4ea0-a888-7ee1d22126ed"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "cec1d276-bc37-4ee1-895e-86a2cd71bf84",
+            "bucketId": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        }
+    ],
+    "buckets": [
+        {
+            "name": "Fitness_App",
+            "type": "bucket",
+            "collectionIds": [
+                "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                "6a78591e-7398-4929-a993-4b676991db6b",
+                "756539a5-e68d-423f-8bf8-133a40ebb56c",
+                "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+                "2f8d31a0-c408-41bb-9061-1a2dc4bec15e",
+                "cec1d276-bc37-4ee1-895e-86a2cd71bf84"
+            ],
+            "backgroundColor": {
+                "r": 0,
+                "g": 138,
+                "b": 0,
+                "a": 1
+            },
+            "show": true,
+            "isActivated": true,
+            "GUID": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+        }
+    ],
+    "views": [],
+    "relationships": [
+        {
+            "name": "fk_Users.id_to_Workouts.userId",
+            "relationshipType": "Foreign Key",
+            "parentField": [
+                [
+                    "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                    "5ab83468-5846-4e66-ac62-610d384706bb"
+                ]
+            ],
+            "parentCardinality": "1",
+            "childField": [
+                [
+                    "6a78591e-7398-4929-a993-4b676991db6b",
+                    "7299b6ee-f1e6-409f-b78a-100382aa00c7"
+                ]
+            ],
+            "isActivated": true,
+            "childCardinality": "n",
+            "GUID": "c6daa221-fc65-4141-8e77-711be8f5e4b1",
+            "parentCollection": "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+            "childCollection": "6a78591e-7398-4929-a993-4b676991db6b",
+            "hackoladeStyles": {
+                "GUID": "9d6e1c9d-b64f-4fb4-b209-c5cc5cd71c48",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1644,
+                        "y": 1297.9999990463257
+                    },
+                    {
+                        "x": 1644,
+                        "y": 1242
+                    }
+                ],
+                "sides": [
+                    "top",
+                    "bottom"
+                ]
+            }
+        },
+        {
+            "name": "New Relationship",
+            "relationshipType": "Foreign Key",
+            "parentField": [],
+            "parentCardinality": "1",
+            "childField": [],
+            "isActivated": true,
+            "childCardinality": "n",
+            "GUID": "43aec60e-eaab-4b5b-9526-51ec7d7d4fe9",
+            "parentCollection": "6a78591e-7398-4929-a993-4b676991db6b",
+            "childCollection": "756539a5-e68d-423f-8bf8-133a40ebb56c",
+            "hackoladeStyles": {
+                "GUID": "268270f9-444b-43be-9c2d-5925b3df037f",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1340,
+                        "y": 1596.9999980926514
+                    },
+                    {
+                        "x": 1441.25,
+                        "y": 1596.9999980926514
+                    },
+                    {
+                        "x": 1441.25,
+                        "y": 1375.9999990463257
+                    },
+                    {
+                        "x": 1542.5,
+                        "y": 1375.9999990463257
+                    }
+                ],
+                "sides": [
+                    "right",
+                    "left"
+                ]
+            }
+        },
+        {
+            "name": "New Relationship1",
+            "relationshipType": "Foreign Key",
+            "parentField": [],
+            "parentCardinality": "1",
+            "childField": [],
+            "isActivated": true,
+            "childCardinality": "n",
+            "GUID": "27214680-a3c1-4ca6-8202-7ff371e4249e",
+            "parentCollection": "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+            "childCollection": "756539a5-e68d-423f-8bf8-133a40ebb56c",
+            "hackoladeStyles": {
+                "GUID": "bd503cc5-e4a4-416b-b8ab-fe616e9303b6",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1228.5,
+                        "y": 1509.9999980926514
+                    },
+                    {
+                        "x": 1228.5,
+                        "y": 1481.9999985694885
+                    },
+                    {
+                        "x": 1191.3333333333333,
+                        "y": 1481.9999985694885
+                    },
+                    {
+                        "x": 1191.3333333333333,
+                        "y": 1453.9999990463257
+                    }
+                ],
+                "sides": [
+                    "top",
+                    "bottom"
+                ]
+            }
+        },
+        {
+            "name": "New Relationship2",
+            "relationshipType": "Foreign Key",
+            "parentField": [],
+            "parentCardinality": "1",
+            "childField": [],
+            "isActivated": true,
+            "childCardinality": "n",
+            "GUID": "54f36ce8-78fa-42bd-a7cf-2bb8ed537bb4",
+            "parentCollection": "2f8d31a0-c408-41bb-9061-1a2dc4bec15e",
+            "childCollection": "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+            "hackoladeStyles": {
+                "GUID": "70109ce7-85d6-4065-a160-eac76949a754",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1153,
+                        "y": 1297.9999990463257
+                    },
+                    {
+                        "x": 1153,
+                        "y": 1242
+                    }
+                ],
+                "sides": [
+                    "top",
+                    "bottom"
+                ]
+            }
+        },
+        {
+            "name": "New Relationship3",
+            "relationshipType": "Foreign Key",
+            "parentField": [],
+            "parentCardinality": "1",
+            "childField": [],
+            "isActivated": true,
+            "childCardinality": "1..n",
+            "GUID": "3b5944d3-cee5-43dc-99a0-2a0a67b0296c",
+            "parentCollection": "cec1d276-bc37-4ee1-895e-86a2cd71bf84",
+            "childCollection": "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+            "hackoladeStyles": {
+                "GUID": "c8b95453-083d-4fd2-9cd9-46b51df710db",
+                "autoPositioning": true,
+                "type": "Orthogonal",
+                "thickness": 2,
+                "color": "#79c4ff",
+                "dataType": "",
+                "shape": [
+                    {
+                        "x": 1229.6666666666665,
+                        "y": 1297.9999990463257
+                    },
+                    {
+                        "x": 1229.6666666666665,
+                        "y": 1269.9999995231628
+                    },
+                    {
+                        "x": 1397.5,
+                        "y": 1269.9999995231628
+                    },
+                    {
+                        "x": 1397.5,
+                        "y": 1242
+                    }
+                ],
+                "sides": [
+                    "top",
+                    "bottom"
+                ]
+            }
+        }
+    ],
+    "users": [],
+    "diagramViews": [
+        {
+            "GUID": "ec757b34-ecad-4f6b-8480-5f2b4a31af6d",
+            "name": "New Diagram View",
+            "buckets": [
+                "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+            ],
+            "comments": "",
+            "description": "",
+            "entities": [
+                "2f8d31a0-c408-41bb-9061-1a2dc4bec15e",
+                "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+                "cec1d276-bc37-4ee1-895e-86a2cd71bf84",
+                "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                "756539a5-e68d-423f-8bf8-133a40ebb56c",
+                "6a78591e-7398-4929-a993-4b676991db6b"
+            ]
+        }
+    ],
+    "idToNameHashTable": {
+        "27b8156a-ff0d-4990-ac09-a3b2a18294a8": "Fitness_App",
+        "35e700a9-f5fe-488e-9e0a-0cab7365e1fa": "Users",
+        "5ab83468-5846-4e66-ac62-610d384706bb": "id",
+        "ef3ec0bf-81ca-4fa3-a433-6710d5a12cd2": "firstName",
+        "7bd5321c-16b7-443b-a44a-cc84b8aaec72": "lastName",
+        "6a78591e-7398-4929-a993-4b676991db6b": "Workouts",
+        "d1a6b9ca-9e93-47da-9c16-d463a0178a13": "title",
+        "7739815c-0f04-451c-bd90-44a65a421a5b": "email",
+        "788f6118-f4a0-40c5-b8af-6aa3381750fb": "password",
+        "3980d1f6-d466-4ae6-be4c-134cf98d8704": "createdAt",
+        "58eb3a3d-f60c-4a8d-8f61-841f79b25819": "updatedAt",
+        "1cea51eb-3c96-4d4c-83f7-a49033ce1088": "id",
+        "7299b6ee-f1e6-409f-b78a-100382aa00c7": "userId",
+        "a4a0cb06-80e0-487e-97c6-a74dcbe9cd6d": "date",
+        "f23b3802-0b8f-40fd-a645-6c5c1b88ac9e": "createdAt",
+        "f4981e81-584f-4203-b410-f18686939bec": "updatedAt",
+        "756539a5-e68d-423f-8bf8-133a40ebb56c": "WorkoutExercises",
+        "eb016f8f-22be-4365-8d5e-fe934e6153cc": "id",
+        "0e50d1b3-b46c-4c0e-b93f-0c8c3dbfec08": "workoutId",
+        "749bbbbe-82b6-4d75-9670-845d3990090d": "exerciseId",
+        "24273e8d-d1eb-4398-a75d-54f15bb263e8": "Exercises",
+        "acde04ab-2a3c-4bcd-9e84-6c09ad1a024d": "id",
+        "886a79f3-8961-4858-a698-3978ecc5fb00": "description",
+        "de38ac14-2921-4c45-b698-4fd621962378": "title",
+        "26bca8e9-7d8a-463e-a707-2b95e44c257b": "muscleGroupId",
+        "ea7c1f62-4a21-45e1-9c8d-71fa3c52611e": "createdAt",
+        "d6fc709e-682c-425c-867a-f426d6d968f3": "updatedAt",
+        "f31b1b23-4e82-40f2-996f-830e2bdb50f1": "sets",
+        "08ae11aa-4094-4c5a-a03b-462e69e76ab6": "reps",
+        "8e065826-76b0-46a8-a62a-f681820c5c6c": "weight",
+        "c2e30ae5-53f3-4324-9380-414bd455a00a": "createdAt",
+        "5cde32e6-4dcb-414e-aa8c-1b71e0c95bcd": "updatedAt",
+        "589eafd1-6a6d-4d1b-b15e-779faf23d5a3": "duration",
+        "2f8d31a0-c408-41bb-9061-1a2dc4bec15e": "Equipment",
+        "d8b58743-04b2-4720-9e99-59dd43bfe794": "id",
+        "dddab6d1-8e12-4f45-8385-5152a11e0389": "name",
+        "a7032f24-7a4c-4656-b794-8b9b4fa39e63": "description",
+        "ddaa9eca-071b-4793-a430-2a03088c65db": "createdAt",
+        "fee10379-3b19-463a-b479-d631b7513e3d": "updatedAt",
+        "4db8e592-d7b9-43e0-bd7a-3207378a6eab": "userImage",
+        "83b51bc7-e2f1-4bbc-ab9b-8ab1c3a797e0": "userBio",
+        "cec1d276-bc37-4ee1-895e-86a2cd71bf84": "MuscleGroups",
+        "4a3cc611-7772-48e1-8688-d8ef8a4458a3": "id",
+        "780c64d2-c0bf-4186-ad53-c8a758dbae6b": "name",
+        "2529fe69-85b4-4d47-bd5c-213abceff7c2": "equipmentId",
+        "c6daa221-fc65-4141-8e77-711be8f5e4b1": "fk_Users.id_to_Workouts.userId",
+        "43aec60e-eaab-4b5b-9526-51ec7d7d4fe9": "New Relationship",
+        "27214680-a3c1-4ca6-8202-7ff371e4249e": "New Relationship1",
+        "54f36ce8-78fa-42bd-a7cf-2bb8ed537bb4": "New Relationship2",
+        "3b5944d3-cee5-43dc-99a0-2a0a67b0296c": "New Relationship3",
+        "ec757b34-ecad-4f6b-8480-5f2b4a31af6d": "New Diagram View"
+    },
+    "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "f652c943-8d2a-4f30-a411-748aaba434f2"
+    },
+    "polyglotDefinitions": {
+        "type": "polyglotDefinitions",
+        "properties": [],
+        "GUID": "669834b0-354f-4645-9a0f-382ca451c5ab"
+    },
+    "externalDefinitions": {
+        "type": "externalDefinitions",
+        "properties": [],
+        "GUID": "1536f4dd-b615-416e-ad35-3b3eb428d908"
+    },
+    "sources": [],
+    "decorativeSymbols": [],
+    "dbVersion": "v7.x",
+    "dbVendor": "MongoDB",
+    "appTarget": "MONGODB",
+    "creationTS": "2024-08-27T13:34:06.646Z",
+    "GUID": "852ced83-3dea-4df5-9141-2781390705a9",
+    "isLineageEnabled": false,
+    "lastModifTS": "2024-08-27T17:38:46.839Z",
+    "persistenceSchemaVersion": "7",
+    "isCreatedByPlugin": true,
+    "pluginInformation": {
+        "pluginEngineVersion": "1.0.0"
+    },
+    "applicationInformation": {
+        "version": "7.7.5"
+    },
+    "hackoladeMeta": {},
+    "settings": {
+        "centralPane": {
+            "dbLevel": {
+                "erd": [
+                    {
+                        "GUID": "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                        "x": 1539,
+                        "y": 1050,
+                        "width": 210,
+                        "height": 192,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "6a78591e-7398-4929-a993-4b676991db6b",
+                        "x": 1542.5,
+                        "y": 1297.9999990463257,
+                        "width": 203,
+                        "height": 156,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "756539a5-e68d-423f-8bf8-133a40ebb56c",
+                        "x": 1117,
+                        "y": 1509.9999980926514,
+                        "width": 223,
+                        "height": 174,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+                        "x": 1076.3333333333333,
+                        "y": 1297.9999990463257,
+                        "width": 230,
+                        "height": 156,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "2f8d31a0-c408-41bb-9061-1a2dc4bec15e",
+                        "x": 1050,
+                        "y": 1122,
+                        "width": 206,
+                        "height": 120,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "cec1d276-bc37-4ee1-895e-86a2cd71bf84",
+                        "x": 1296,
+                        "y": 1176,
+                        "width": 203,
+                        "height": 66,
+                        "color": {}
+                    }
+                ],
+                "erdDefinitions": {
+                    "erd": [],
+                    "rootPath": [],
+                    "entities": [],
+                    "decorativeSymbols": []
+                },
+                "buckets": [
+                    {
+                        "x": 1010,
+                        "y": 1010,
+                        "GUID": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+                    }
+                ],
+                "collapsedNodes": [],
+                "activeRelationship": "",
+                "activeRelationshipFields": {
+                    "childField": [],
+                    "parentField": []
+                },
+                "selectedCollections": [],
+                "displayColorPicker": false,
+                "graphView": {
+                    "erd": [],
+                    "buckets": [],
+                    "decorativeSymbols": [],
+                    "forceLayout": true,
+                    "defaultLinkLength": 300
+                },
+                "diagramViews": [
+                    {
+                        "GUID": "ec757b34-ecad-4f6b-8480-5f2b4a31af6d",
+                        "entities": [
+                            {
+                                "GUID": "2f8d31a0-c408-41bb-9061-1a2dc4bec15e",
+                                "x": 1543,
+                                "y": 1122,
+                                "width": 206,
+                                "height": 120,
+                                "color": {}
+                            },
+                            {
+                                "GUID": "24273e8d-d1eb-4398-a75d-54f15bb263e8",
+                                "x": 1324.8333333333335,
+                                "y": 1297.9999990463257,
+                                "width": 230,
+                                "height": 156,
+                                "color": {}
+                            },
+                            {
+                                "GUID": "cec1d276-bc37-4ee1-895e-86a2cd71bf84",
+                                "x": 1300,
+                                "y": 1176,
+                                "width": 203,
+                                "height": 66,
+                                "color": {}
+                            },
+                            {
+                                "GUID": "35e700a9-f5fe-488e-9e0a-0cab7365e1fa",
+                                "x": 1050,
+                                "y": 1050,
+                                "width": 210,
+                                "height": 192,
+                                "color": {}
+                            },
+                            {
+                                "GUID": "756539a5-e68d-423f-8bf8-133a40ebb56c",
+                                "x": 1080.6666666666667,
+                                "y": 1509.9999980926514,
+                                "width": 223,
+                                "height": 174,
+                                "color": {}
+                            },
+                            {
+                                "GUID": "6a78591e-7398-4929-a993-4b676991db6b",
+                                "x": 1053.5,
+                                "y": 1297.9999990463257,
+                                "width": 203,
+                                "height": 156,
+                                "color": {}
+                            }
+                        ],
+                        "buckets": [
+                            {
+                                "x": 1010,
+                                "y": 1010,
+                                "GUID": "27b8156a-ff0d-4990-ac09-a3b2a18294a8"
+                            }
+                        ],
+                        "graphView": {
+                            "erd": [],
+                            "buckets": [],
+                            "decorativeSymbols": [],
+                            "forceLayout": true,
+                            "defaultLinkLength": 300
+                        },
+                        "displayOptions": {},
+                        "relationships": [
+                            {
+                                "GUID": "c6daa221-fc65-4141-8e77-711be8f5e4b1",
+                                "autoPositioning": true,
+                                "sides": [
+                                    "top",
+                                    "bottom"
+                                ],
+                                "shape": [
+                                    {
+                                        "x": 1155,
+                                        "y": 1297.9999990463257
+                                    },
+                                    {
+                                        "x": 1155,
+                                        "y": 1242
+                                    }
+                                ]
+                            },
+                            {
+                                "GUID": "43aec60e-eaab-4b5b-9526-51ec7d7d4fe9",
+                                "autoPositioning": true,
+                                "sides": [
+                                    "top",
+                                    "bottom"
+                                ],
+                                "shape": [
+                                    {
+                                        "x": 1155,
+                                        "y": 1509.9999980926514
+                                    },
+                                    {
+                                        "x": 1155,
+                                        "y": 1453.9999990463257
+                                    }
+                                ]
+                            },
+                            {
+                                "GUID": "27214680-a3c1-4ca6-8202-7ff371e4249e",
+                                "autoPositioning": true,
+                                "sides": [
+                                    "top",
+                                    "bottom"
+                                ],
+                                "shape": [
+                                    {
+                                        "x": 1229.3333333333335,
+                                        "y": 1509.9999980926514
+                                    },
+                                    {
+                                        "x": 1229.3333333333335,
+                                        "y": 1481.9999985694885
+                                    },
+                                    {
+                                        "x": 1439.8333333333335,
+                                        "y": 1481.9999985694885
+                                    },
+                                    {
+                                        "x": 1439.8333333333335,
+                                        "y": 1453.9999990463257
+                                    }
+                                ]
+                            },
+                            {
+                                "GUID": "54f36ce8-78fa-42bd-a7cf-2bb8ed537bb4",
+                                "autoPositioning": true,
+                                "sides": [
+                                    "top",
+                                    "bottom"
+                                ],
+                                "shape": [
+                                    {
+                                        "x": 1478.1666666666667,
+                                        "y": 1297.9999990463257
+                                    },
+                                    {
+                                        "x": 1478.1666666666667,
+                                        "y": 1269.9999995231628
+                                    },
+                                    {
+                                        "x": 1646,
+                                        "y": 1269.9999995231628
+                                    },
+                                    {
+                                        "x": 1646,
+                                        "y": 1242
+                                    }
+                                ]
+                            },
+                            {
+                                "GUID": "3b5944d3-cee5-43dc-99a0-2a0a67b0296c",
+                                "autoPositioning": true,
+                                "sides": [
+                                    "top",
+                                    "bottom"
+                                ],
+                                "shape": [
+                                    {
+                                        "x": 1401.5000000000002,
+                                        "y": 1297.9999990463257
+                                    },
+                                    {
+                                        "x": 1401.5,
+                                        "y": 1242
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "decorativeSymbols": [],
+                "nestedCollectionsLayout": "horizontal",
+                "options": [
+                    {
+                        "autoWidth": false,
+                        "autoHeight": false,
+                        "GUID": "2f8d31a0-c408-41bb-9061-1a2dc4bec15e"
+                    }
+                ],
+                "relationshipUpdateDisabled": false,
+                "displayOptions": {}
+            },
+            "collectionLevel": {},
+            "changed": false
+        },
+        "dtDiagram": {
+            "collapsedNodes": [],
+            "shouldDistributeCollections": false
+        }
+    }
+}
