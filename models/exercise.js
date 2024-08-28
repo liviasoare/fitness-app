@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const exerciseSchema = new Schema({
-  // id: {
-  //     type: Schema.Types.ObjectId,
-  //     required: true
-  // },
   title: {
     type: String,
     required: true,
@@ -13,13 +9,6 @@ const exerciseSchema = new Schema({
   description: {
     type: String,
   },
-  //   muscleGroupId: {
-  //     type: Schema.Types.ObjectId,
-  //     required: true,
-  //   },
-  //   equipmentId: {
-  //     type: Schema.Types.ObjectId,
-  //   },
   muscleGroups: [
     {
       muscleGroupId: {

@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const exercise = require("./exercise");
 const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
-  userId: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
@@ -13,20 +14,34 @@ const workoutSchema = new Schema({
   },
   date: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
   duration: {
     type: Number,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    required: true,
-  },
-  updatedAt: {
-    type: Date,
-    required: true,
-  },
+  exercises: [
+    {
+      exercise: {
+        type: Schema.Types.ObjectId,
+        ref: "Exercise",
+        required: true,
+      },
+      sets: { type: Number, required: true },
+      reps: { type: Number, required: true },
+      notes: {
+        type: String,
+      },
+    },
+  ],
+  //   createdAt: {
+  //     type: Date,
+  //     required: true,
+  //   },
+  //   updatedAt: {
+  //     type: Date,
+  //     required: true,
+  //   },
 });
 
 // *functions
