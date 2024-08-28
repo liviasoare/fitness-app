@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+const mongoose = require('mongoose')
+
 // routes connections
 const userRoutes = require("./routes/userRoutes");
 const workoutRoutes = require("./routes/workoutRoutes");
