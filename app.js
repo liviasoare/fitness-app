@@ -3,14 +3,17 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+
 const mongoose = require("mongoose");
+const session = require("express-session");
+
 const errorController = require("./controllers/error");
 
 // routes connections
 const userRoutes = require("./routes/userRoutes");
 const workoutRoutes = require("./routes/workoutRoutes");
 
-// *nodejs
+// *nodejs for complex stuff
 // const server = http.createServer(app);
 
 //* middleware to parse JSON bodies
@@ -23,7 +26,7 @@ app.get("/", (req, res) => {
 app.use("/user", userRoutes);
 app.use("/workout", workoutRoutes);
 
-// *nodejs
+// *nodejs for complex stuff
 // server.listen(port, port, () => {
 //     console.log('Working!!!')
 // });
