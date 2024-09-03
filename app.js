@@ -1,8 +1,9 @@
 // const http = require("http");
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 8080;
 
+const bodyParser = require("body-parser");
 
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -10,11 +11,12 @@ const session = require("express-session");
 const errorController = require("./controllers/error");
 
 // routes connections
-const userRoutes = require("./routes/userRoutes");
-const workoutRoutes = require("./routes/workoutRoutes");
+const userRoutes = require("./routes/user");
+const workoutRoutes = require("./routes/workout");
+const { body } = require("express-validator");
 
-// *nodejs for complex stuff
-// const server = http.createServer(app);
+// app.use(bodyParser.urlencoded());
+app.use(bodyParser.json()); //application/json
 
 //* middleware to parse JSON bodies
 app.use(express.json());
