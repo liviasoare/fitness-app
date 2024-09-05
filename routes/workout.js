@@ -5,7 +5,7 @@ const workoutsController = require("../controllers/workout");
 
 //TEST
 // GET workout/all
-router.get("/all", workoutsController.getAllWorkouts);
+router.get("/", workoutsController.getAllWorkouts);
 
 // POST workout/create
 router.post("/create", workoutsController.postAddWorkout);

@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 exports.getAllWorkouts = (req, res, next) => {
   // console.log("GET ALL");
   res.status(200).json({
-    workout: [{ title: "Leg day", description: "To be done on Mondays" }],
+    workout: [{ title: "Leg day", duration: "120" }],
   });
 };
 
