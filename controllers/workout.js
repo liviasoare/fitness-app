@@ -17,62 +17,34 @@ exports.getAllWorkouts = (req, res, next) => {
 exports.postAddWorkout = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(422).json({ message: "Validation failed!" , errors: errors.array()});
+    return res
+      .status(422)
+      .json({ message: "Validation failed!", errors: errors.array() });
   }
 
   const title = req.body.title;
   const duration = req.body.duration;
 
   // TODO create workout in DB
-
-  res.status(201).json({
-    message: "Workout created succesfully",
-    workout: {
-      id: new Date().toISOString,
-      title: title,
-      date: new Date(),
-      duration: duration,
-    },
+  const workout = new Workout({
+    title: title,
+    date: new Date(),
+    duration: duration,
+    exercises: [],
+    user: new Date().toISOString(),
   });
-};
-// const workoutSchema = new Schema({
-//   user: {
-//     type: Schema.Types.ObjectId,
-//     ref: "User",
-//     required: true,
-//   },
-//   title: {
-//     type: String,
-//     required: true,
-//   },
-//   date: {
-//     type: Date,
-//     default: Date.now,
-//   },
-//   duration: {
-//     type: Number,
-//     required: true,
-//   },
-//   exercises: [
-//     {
-//       exercise: {
-//         type: Schema.Types.ObjectId,
-//         ref: "Exercise",
-//         required: true,
-//       },
-//       sets: { type: Number, required: true },
-//       reps: { type: Number, required: true },
-//       notes: {
-//         type: String,
-//       },
-//     },
-//   ],
-// });
 
-// create workout
-// exports.postAddWorkout = (req, res, next) => {
-//   console.log("ADDED NEW WORKOUT");
-// };
+  workout
+    .save()
+    .then((result) => {
+      console.log(result);
+      res.status(201).json({
+        message: "Workout created succesfully",
+        workout: result,
+      });
+    })
+    .catch((err) => console.log(err));
+};
 
 // get all workous by user id
 exports.getWorkoutByUserId = (req, res, next) => {

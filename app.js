@@ -43,9 +43,18 @@ app.use("/workout", workoutRoutes);
 
 app.use(errorController.get404);
 
-app.listen(port, () => {
-  console.log("Working!!!");
-});
+// DB connection
+mongoose
+  .connect(
+    "mongodb+srv://admin:Andreea11!@cluster0.ptyir.mongodb.net/fitness-app?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then((result) => {
+    // bootstrapping the app
+    app.listen(port, () => {
+      console.log("Working!!!");
+    });
+  })
+  .catch((err) => console.log(err));
 
 // testing
 // app.use('/static', express.static('Screenshot 2024-08-27 204000.png'))
