@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const { body } = require("express-validator");
+
 const workoutsController = require("../controllers/workout");
 
 //TEST
@@ -8,7 +10,11 @@ const workoutsController = require("../controllers/workout");
 router.get("/", workoutsController.getAllWorkouts);
 
 // POST workout/create
-router.post("/create", workoutsController.postAddWorkout);
+router.post(
+  "/create",
+  [body("title").trim().isLength({ min: 5 })],
+  workoutsController.postAddWorkout
+);
 
 //
 router.get("/:userId", workoutsController.getWorkoutByUserId);
