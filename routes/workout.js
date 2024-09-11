@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { body } = require("express-validator");
 
-const workoutsController = require("../controllers/workout");
+const workoutsController = require("../controllers/workout")
 
 //TEST
 // GET workout/all
@@ -20,7 +20,8 @@ router.post(
 router.get("/:userId", workoutsController.getWorkoutByUserId);
 
 
-router.get("/:name", workoutsController.getWorkoutByName);
-router.get("/:muscle", workoutsController.getWorkoutByMuscle);
+
+// router.get("/name/:name", workoutsController.getWorkoutByName);
+// router.get("/muscle/:muscle", workoutsController.getWorkoutByMuscle);
 
 module.exports = router;

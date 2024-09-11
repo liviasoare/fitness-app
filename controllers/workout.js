@@ -8,9 +8,19 @@ const { validationResult } = require("express-validator");
 // GET ALL WORKOUTS
 exports.getAllWorkouts = (req, res, next) => {
   // console.log("GET ALL");
-  res.status(200).json({
-    workout: [{ title: "Leg day", duration: "120" }],
-  });
+
+  Workout.find()
+    .then((workouts) => {
+      res
+        .status(200)
+        .json({ message: "Fetched all workouts", workouts: workouts });
+    })
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
 };
 
 // CREATE WORKOUT
@@ -30,7 +40,7 @@ exports.postAddWorkout = (req, res, next) => {
     date: new Date(),
     duration: duration,
     exercises: [],
-    userId: new Date().toISOString(),
+    userId: Math.floor(Math.random() * 1000),
   });
 
   workout
@@ -52,26 +62,39 @@ exports.postAddWorkout = (req, res, next) => {
 
 // get all workous by user id
 exports.getWorkoutByUserId = (req, res, next) => {
+  console.log(req.params.userId);
   const userId = req.params.userId;
 
   console.log("called");
-  Workout.findById(userId)
-    .then((result) => {
-      console.log(result);
-      res.status(201).json({
+  Workout.find({ userId })
+    .then((workout) => {
+      console.log(workout);
+
+      if (workout?.length < 1) {
+        const error = new Error("Could not find a workout.");
+        error.statusCode = 404;
+        throw error;
+      }
+
+      res.status(200).json({
         message: "Workout found!",
-        // workout: result,
+        workout: workout,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
 };
 
-// get workout by name
-exports.getWorkoutByName = (req, res, next) => {
-  console.log("FOUND BY NAME");
-};
+// // get workout by name
+// exports.getWorkoutByName = (req, res, next) => {
+//   console.log("FOUND BY NAME");
+// };
 
-// get workout by muscle group
-exports.getWorkoutByMuscle = (req, res, next) => {
-  console.log("FOUND BY MUSCLE GROUP");
-};
+// // get workout by muscle group
+// exports.getWorkoutByMuscle = (req, res, next) => {
+//   console.log("FOUND BY MUSCLE GROUP");
+// };
