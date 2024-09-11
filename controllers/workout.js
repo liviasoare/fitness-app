@@ -17,21 +17,20 @@ exports.getAllWorkouts = (req, res, next) => {
 exports.postAddWorkout = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res
-      .status(422)
-      .json({ message: "Validation failed!", errors: errors.array() });
+    const error = new Error("Validation failed!");
+    error.statusCode = 422;
+    throw error;
   }
 
   const title = req.body.title;
   const duration = req.body.duration;
 
-  // TODO create workout in DB
   const workout = new Workout({
     title: title,
     date: new Date(),
     duration: duration,
     exercises: [],
-    user: new Date().toISOString(),
+    userId: new Date().toISOString(),
   });
 
   workout
@@ -43,12 +42,28 @@ exports.postAddWorkout = (req, res, next) => {
         workout: result,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
 };
 
 // get all workous by user id
 exports.getWorkoutByUserId = (req, res, next) => {
-  console.log("A TEST");
+  const userId = req.params.userId;
+
+  console.log("called");
+  Workout.findById(userId)
+    .then((result) => {
+      console.log(result);
+      res.status(201).json({
+        message: "Workout found!",
+        // workout: result,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 // get workout by name

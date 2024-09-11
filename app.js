@@ -43,6 +43,13 @@ app.use("/workout", workoutRoutes);
 
 app.use(errorController.get404);
 
+app.use((error, req, res, next) => {
+  console.log(error);
+  const status = error.statusCode || 500;
+  const message = error.message;
+  res.status(status).json({ message: message });
+});
+
 // DB connection
 mongoose
   .connect(

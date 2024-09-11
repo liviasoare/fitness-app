@@ -9,9 +9,9 @@ const workoutSchema = new Schema(
     //   ref: "User",
     //   required: true,
     // },
-    user: {
-      type: String,
-      ref: "User",
+    userId: {
+      type: Number,
+      // ref: "User",
       required: true,
     },
     title: {

@@ -16,8 +16,10 @@ router.post(
   workoutsController.postAddWorkout
 );
 
-//
+//GET workout
 router.get("/:userId", workoutsController.getWorkoutByUserId);
+
+
 router.get("/:name", workoutsController.getWorkoutByName);
 router.get("/:muscle", workoutsController.getWorkoutByMuscle);
 
