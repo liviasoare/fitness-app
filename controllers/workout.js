@@ -26,6 +26,7 @@ exports.getAllWorkouts = (req, res, next) => {
 // CREATE WORKOUT
 exports.postAddWorkout = (req, res, next) => {
   const errors = validationResult(req);
+
   if (!errors.isEmpty()) {
     const error = new Error("Validation failed!");
     error.statusCode = 422;
@@ -94,7 +95,41 @@ exports.getWorkoutByUserId = (req, res, next) => {
 //   console.log("FOUND BY NAME");
 // };
 
-// // get workout by muscle group
-// exports.getWorkoutByMuscle = (req, res, next) => {
-//   console.log("FOUND BY MUSCLE GROUP");
-// };
+// GET workout by muscle group for a specific user
+exports.getWorkoutForUserByMuscle = (req, res, next) => {
+  const { userId, muscleGroup } = req.params;
+
+  Workout.find({ userId })
+    .populate("exercises.exercises")
+    .then((workouts) => {
+      if (!workouts || workouts.length < 1) {
+        const error = new Error("No workouts found");
+        error.statusCode = 404;
+        throw error;
+      }
+
+      // filter workouts by muscle group within the exercises
+      const filteredWorkouts = workouts.filter((workout) => {
+        return workout.exercises.some((ex) =>
+          ex.exercise.muscleGroup.includes(muscleGroup)
+        );
+      });
+
+      if (filteredWorkouts.length < 1) {
+        return res.status(404).json({
+          message: "No exercises found targeting " + muscleGroup + ".",
+        });
+      }
+
+      res.status(200).json({
+        message: "Workouts targeting " + muscleGroup + " found!",
+        workouts: workouts,
+      });
+    })
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
+};

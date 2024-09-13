@@ -12,8 +12,7 @@ const exerciseSchema = new Schema({
   muscleGroups: [
     {
       muscleGroupId: {
-        type: Schema.Types.ObjectId,
-        ref: "MuscleGroup",
+        type: String,
         required: true,
       },
     },

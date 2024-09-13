@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { body } = require("express-validator");
 
-const workoutsController = require("../controllers/workout")
+const workoutsController = require("../controllers/workout");
 
 //TEST
 // GET workout/all
@@ -19,7 +19,11 @@ router.post(
 //GET workout
 router.get("/:userId", workoutsController.getWorkoutByUserId);
 
-
+// GET workouts for a specfifc user based on a selected muscle group
+router.get(
+  "/user/:userId/muscle/:muscleGroup",
+  workoutsController.getWorkoutForUserByMuscle
+);
 
 // router.get("/name/:name", workoutsController.getWorkoutByName);
 // router.get("/muscle/:muscle", workoutsController.getWorkoutByMuscle);
