@@ -1,6 +1,4 @@
 const Workout = require("../models/workout");
-const Exercise = require("../models/exercise");
-const User = require("../models/user");
 const mongoose = require("mongoose");
 
 const { validationResult } = require("express-validator");
@@ -89,11 +87,6 @@ exports.getWorkoutByUserId = (req, res, next) => {
       next(err);
     });
 };
-
-// // get workout by name
-// exports.getWorkoutByName = (req, res, next) => {
-//   console.log("FOUND BY NAME");
-// };
 
 // GET workout by muscle group for a specific user
 exports.getWorkoutForUserByMuscle = (req, res, next) => {

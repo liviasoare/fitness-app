@@ -13,6 +13,7 @@ const errorController = require("./controllers/error");
 // routes connections
 const userRoutes = require("./routes/user");
 const workoutRoutes = require("./routes/workout");
+const exerciseRoutes = require("./routes/exercise");
 const { body } = require("express-validator");
 
 // app.use(bodyParser.urlencoded());
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRoutes);
 app.use("/workout", workoutRoutes);
+app.use("/exercise", exerciseRoutes);
 
 // *nodejs for complex stuff
 // server.listen(port, port, () => {

@@ -1,8 +1,8 @@
-// GET ALL WORKOUTS for a specific user by userId
+// // GET ALL WORKOUTS for a specific user by userId
 
 // GET ALL EXERCISES available
 
-// GET ALL EXERCISES by groupMuscle
+// // GET ALL EXERCISES by groupMuscle
 
 // GET ALL GROUPS OF MUSCLES
 
@@ -14,7 +14,7 @@
 
 // ? UPDATE exercise
 
-//* CREATE workout
+// // * CREATE workout
 
 //* CREATE exercise
 
