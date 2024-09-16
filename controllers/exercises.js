@@ -1,5 +1,9 @@
 const Exercise = require("../models/exercise");
+const mongoose = require("mongoose");
 
+const { validationResult } = require("express-validator");
+
+// POST exercise
 exports.postExercise = (req, res, next) => {
   const exerciseTitle = req.body.title;
   const exerciseDescription = req.body.description;
@@ -24,3 +28,18 @@ exports.postExercise = (req, res, next) => {
     });
 };
 
+// GET ALL exercises available
+exports.getAllExercises = (req, res, next) => {
+  Exercise.find()
+    .then((exercises) => {
+      res
+        .status(200)
+        .json({ message: "Exercises found!", exercises: exercises });
+    })
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
+};
