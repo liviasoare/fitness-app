@@ -43,3 +43,9 @@ exports.getAllExercises = (req, res, next) => {
       next(err);
     });
 };
+
+// GET SINGLE exercise by ID
+exports.getExerciseBy = (req, res, next) => {};
+
+// GET EXERCISE by name
+exports.searchExercise = (req, res, next) => {};
