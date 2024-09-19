@@ -26,11 +26,14 @@ router.get(
 );
 
 // UPDATE workout
-router.put('/:workoutId', workoutsController.updateWorkout)
+router.put(
+  "/:workoutId",
+  [body("title").trim().isLength({ min: 5 })],
+  workoutsController.updateWorkout
+);
 
 // DELETE workout
-router.delete('/:workoutId', workoutsController.deleteWorkout)
-
+router.delete("/:workoutId", workoutsController.deleteWorkout);
 
 // TODO
 // router.get("/name/:name", workoutsController.getWorkoutByName);
