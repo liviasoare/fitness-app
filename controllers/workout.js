@@ -126,3 +126,13 @@ exports.getWorkoutForUserByMuscle = (req, res, next) => {
       next(err);
     });
 };
+
+// UPDATE single workout
+exports.updateWorkout = (req,res,next) => {
+
+}
+
+// DELETE single workout
+exports.deleteWorkout = (req,res,next) => {
+  
+}

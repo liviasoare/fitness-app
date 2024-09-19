@@ -25,6 +25,14 @@ router.get(
   workoutsController.getWorkoutForUserByMuscle
 );
 
+// UPDATE workout
+router.put('/:workoutId', workoutsController.updateWorkout)
+
+// DELETE workout
+router.delete('/:workoutId', workoutsController.deleteWorkout)
+
+
+// TODO
 // router.get("/name/:name", workoutsController.getWorkoutByName);
 // router.get("/muscle/:muscle", workoutsController.getWorkoutByMuscle);
 

@@ -65,5 +65,8 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-// testing
+
+
+  
+//? for testing
 // app.use('/static', express.static('Screenshot 2024-08-27 204000.png'))

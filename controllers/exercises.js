@@ -49,3 +49,13 @@ exports.getExerciseBy = (req, res, next) => {};
 
 // GET EXERCISE by name
 exports.searchExercise = (req, res, next) => {};
+
+// UPDATE exercise
+exports.updateExercise = (req,res,next) => {
+
+}
+
+// DELETE exercise
+exports.deleteExercise = (req,res,next) => {
+  
+}
