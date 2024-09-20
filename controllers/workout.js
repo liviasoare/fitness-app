@@ -173,4 +173,29 @@ exports.updateWorkout = (req, res, next) => {
 };
 
 // DELETE single workout
-exports.deleteWorkout = (req, res, next) => {};
+exports.deleteWorkout = (req, res, next) => {
+  const workoutId = req.params.workoutId;
+
+  Workout.findById(workoutId)
+    .then((workout) => {
+      // TODO check if logged in user
+
+      if (!workout) {
+        const error = new Error("Could not find a workout.");
+        error.statusCode = 404;
+        throw error;
+      }
+
+      return Workout.findByIdAndDelete(workoutId);
+    })
+    .then((result) => {
+      console.log(result);
+      return res.status(200).json({ message: "Workout deleted!" });
+    })
+    .catch((err) => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next();
+    });
+};
