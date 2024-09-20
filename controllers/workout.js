@@ -2,20 +2,30 @@ const Workout = require("../models/workout");
 const mongoose = require("mongoose");
 
 const { validationResult, Result } = require("express-validator");
-const { post } = require("../routes/user");
-const workout = require("../models/workout");
 
 //! TODO write tests
 
 // GET ALL WORKOUTS
 exports.getAllWorkouts = (req, res, next) => {
   // console.log("GET ALL");
+  const currentPage = req.query.page || 1;
+  const perPage = 2;
+  let totalItems;
 
   Workout.find()
+    .countDocuments()
+    .then((count) => {
+      totalItems = count;
+      return Workout.find()
+        .skip((currentPage - 1) * perPage)
+        .limit(perPage);
+    })
     .then((workouts) => {
-      res
-        .status(200)
-        .json({ message: "Fetched all workouts", workouts: workouts });
+      res.status(200).json({
+        message: "Fetched all workouts (with pagination)",
+        workouts: workouts,
+        totalItems: totalItems,
+      });
     })
     .catch((err) => {
       if (!err.statusCode) {
