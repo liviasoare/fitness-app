@@ -14,6 +14,8 @@ const errorController = require("./controllers/error");
 const userRoutes = require("./routes/user");
 const workoutRoutes = require("./routes/workout");
 const exerciseRoutes = require("./routes/exercise");
+const authRoutes = require("./routes/auth");
+
 const { body } = require("express-validator");
 
 // app.use(bodyParser.urlencoded());
@@ -30,19 +32,21 @@ app.use((req, res, next) => {
   next();
 });
 
+// *routes
 app.get("/", (req, res) => {
   res.send("Server working!");
 });
-
 app.use("/user", userRoutes);
 app.use("/workout", workoutRoutes);
 app.use("/exercise", exerciseRoutes);
+app.use("/auth", authRoutes);
 
 // *nodejs for complex stuff
 // server.listen(port, port, () => {
 //     console.log('Working!!!')
 // });
 
+// *error logging
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
@@ -52,7 +56,7 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message });
 });
 
-// DB connection
+// *DB connection
 mongoose
   .connect(
     "mongodb+srv://admin:Andreea11!@cluster0.ptyir.mongodb.net/fitness-app?retryWrites=true&w=majority&appName=Cluster0"
@@ -65,8 +69,5 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-
-
-  
 //? for testing
 // app.use('/static', express.static('Screenshot 2024-08-27 204000.png'))

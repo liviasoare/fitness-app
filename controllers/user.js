@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// creat new user => POST
-exports.postAddNewUser = (req, res, next) => {};
+// creat new user => PUT
+exports.createUser = (req, res, next) => {};
 
 // module.exports = User;
